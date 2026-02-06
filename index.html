@@ -2,54 +2,61 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Rose Day Duggu ❤️</title>
 
 <style>
 body {
     background: linear-gradient(to right, #ff758c, #ff7eb3);
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
     color: white;
-    margin-top: 50px;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 30px;
-    margin: auto;
-    width: 60%;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 500px;
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-h1 {
-    font-size: 40px;
-}
-
-p {
-    font-size: 20px;
+img {
+    width: 90%;
+    border-radius: 15px;
+    border: 3px solid white;
+    margin-top:10px;
 }
 
 button {
     padding: 10px 20px;
-    font-size: 18px;
+    font-size: 16px;
     background-color: white;
     color: #ff4b5c;
     border: none;
     border-radius: 10px;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-button:hover {
-    background-color: #ff4b5c;
-    color: white;
+    margin-top: 10px;
+    cursor:pointer;
 }
 
 #message {
-    margin-top: 20px;
-    font-size: 22px;
     display: none;
+    margin-top: 10px;
+    font-size:18px;
+}
+
+.rose {
+    position: fixed;
+    top: -10%;
+    font-size: 20px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh); }
 }
 </style>
 
@@ -57,27 +64,48 @@ button:hover {
 function showMessage() {
     document.getElementById("message").style.display = "block";
 }
+
+function createRose() {
+    const rose = document.createElement("div");
+    rose.classList.add("rose");
+    rose.innerHTML = "🌹";
+    rose.style.left = Math.random() * 100 + "vw";
+    rose.style.animationDuration = Math.random() * 3 + 2 + "s";
+    document.body.appendChild(rose);
+
+    setTimeout(() => {
+        rose.remove();
+    }, 5000);
+}
+
+setInterval(createRose, 300);
 </script>
 
 </head>
 
 <body>
 
+<audio autoplay loop>
+    <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
+</audio>
+
 <div class="container">
-    <h1>🌹 Happy Rose Day Duggu 🌹</h1>
+    <h2>🌹 Happy Rose Day Duggu 🌹</h2>
+
+    <img src="data:image/jpeg;base64,{{BASE64_IMAGE}}">
 
     <p>
-        To the most beautiful person in my life,<br>
-        Just like a rose fills the world with fragrance,<br>
-        You fill my life with happiness and love ❤️
+        To the most special girl in my life ❤️ <br>
+        You are as beautiful and precious as a rose.<br>
+        Thank you for making my life so lovely.
     </p>
 
     <button onclick="showMessage()">Click Here Duggu</button>
 
     <div id="message">
-        💖 You are my favorite person, my happiness, my peace.<br>
-        Sending you all my love on this Rose Day! 🌹<br><br>
-        – From Someone Who Loves You The Most 💌
+        💖 Happy Rose Day to my favorite person!<br><br>
+        You are my happiness, my smile, my everything 🌹<br><br>
+        – With Love, <b>Aman</b>
     </div>
 </div>
 
